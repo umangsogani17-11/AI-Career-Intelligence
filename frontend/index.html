@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#09111f">
+
+    <title>CareerOrbit | AI Career Intelligence</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+    <div class="grid"></div>
+
+    <main class="shell">
+
+        <!-- ================= NAVBAR ================= -->
+
+        <nav class="nav glass">
+
+            <a class="brand" href="#top">
+                <span class="brand-mark">✦</span>
+                CareerOrbit
+            </a>
+
+            <div class="nav-links">
+                <a href="#analyze">Analysis</a>
+                <a href="#career">Career Map</a>
+                <a href="#jobs">Job Matches</a>
+            </div>
+
+            <a
+                class="api-link"
+                href="/docs"
+                target="_blank"
+                rel="noreferrer"
+            >
+                API docs ↗
+            </a>
+
+        </nav>
+
+        <div class="system-strip glass" id="system-strip">
+            <span class="pulse"></span>
+            <span id="api-health">Checking API health…</span>
+            <span class="strip-divider"></span>
+            <span id="career-health">Checking career service…</span>
+            <a href="/" target="_blank" rel="noreferrer">API root ↗</a>
+        </div>
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero" id="top">
+
+            <div class="hero-copy">
+
+                <p class="eyebrow">
+                    AI CAREER INTELLIGENCE
+                </p>
+
+                <h1>
+                    Find the next
+                    <br>
+                    <em>version of you.</em>
+                </h1>
+
+                <p class="lead">
+                    Upload your resume, discover your strongest career
+                    direction, and turn skill gaps into a practical roadmap.
+                </p>
+
+                <a
+                    class="primary-button"
+                    href="#analyze"
+                >
+                    Explore your potential
+                    <span>→</span>
+                </a>
+
+            </div>
+
+
+            <div
+                class="orbit-scene"
+                aria-hidden="true"
+            >
+
+                <div class="orbit orbit-a"></div>
+                <div class="orbit orbit-b"></div>
+
+                <div class="planet">
+                    <span>AI</span>
+                </div>
+
+                <div class="satellite sat-one">
+                    01
+                </div>
+
+                <div class="satellite sat-two">
+                    ✦
+                </div>
+
+                <div class="satellite sat-three">
+                    ∞
+                </div>
+
+            </div>
+
+            <div class="resume-tools glass" id="resume-tools">
+                <div>
+                    <p class="card-label">RESUME TOOLKIT</p>
+                    <h3>Turn one upload into a stronger application.</h3>
+                    <p id="resume-tool-message">Choose a PDF to unlock resume inspection, AI analysis, and ATS-friendly improvement.</p>
+                </div>
+                <div class="tool-actions">
+                    <button class="ghost-button" data-resume-action="inspect" disabled>Inspect text</button>
+                    <button class="ghost-button" data-resume-action="analyze" disabled>Analyze resume</button>
+                    <button class="primary-button" data-resume-action="improve" disabled>Improve resume <span>→</span></button>
+                </div>
+            </div>
+
+            <div class="detail-panel glass hidden" id="resume-detail"></div>
+
+        </section>
+
+
+        <!-- ================= RESUME ANALYSIS ================= -->
+
+        <section
+            class="workspace"
+            id="analyze"
+        >
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    01 — RESUME INTELLIGENCE
+                </p>
+
+                <h2>
+                    Your resume, decoded.
+                </h2>
+
+            </div>
+
+
+            <div class="analysis-grid">
+
+                <!-- Upload -->
+
+                <label
+                    class="upload-card glass tilt-card"
+                    id="drop-zone"
+                    for="resume-file"
+                >
+
+                    <input
+                        id="resume-file"
+                        type="file"
+                        accept="application/pdf"
+                        hidden
+                    >
+
+                    <span class="upload-icon">
+                        ↥
+                    </span>
+
+                    <strong id="file-label">
+                        Drop your PDF resume here
+                    </strong>
+
+                    <small>
+                        or click to browse · PDF only
+                    </small>
+
+                    <span
+                        class="upload-status"
+                        id="upload-status"
+                    >
+                        Ready when you are
+                    </span>
+
+                </label>
+
+
+                <!-- Score -->
+
+                <div class="score-card glass tilt-card">
+
+                    <p class="card-label">
+                        CAREER READINESS
+                    </p>
+
+                    <div
+                        class="score-ring"
+                        id="score-ring"
+                    >
+
+                        <span id="score-value">
+                            --
+                        </span>
+
+                        <small>
+                            /100
+                        </small>
+
+                    </div>
+
+                    <p id="score-summary">
+                        Upload a resume to reveal your score
+                        and tailored insights.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Resume Insights -->
+
+            <div
+                class="insights-grid"
+                id="resume-insights"
+            >
+
+                <article class="glass insight">
+
+                    <span>✦</span>
+
+                    <h3>
+                        Strengths
+                    </h3>
+
+                    <ul id="strengths">
+                        <li>
+                            Waiting for your resume
+                        </li>
+                    </ul>
+
+                </article>
+
+
+                <article class="glass insight">
+
+                    <span>⌁</span>
+
+                    <h3>
+                        Growth edges
+                    </h3>
+
+                    <ul id="gaps">
+                        <li>
+                            Targeted recommendations
+                            will appear here
+                        </li>
+                    </ul>
+
+                </article>
+
+
+                <article class="glass insight">
+
+                    <span>↗</span>
+
+                    <h3>
+                        Suggested roles
+                    </h3>
+
+                    <ul id="roles">
+                        <li>
+                            Roles will be personalized
+                        </li>
+                    </ul>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CAREER MAP ================= -->
+
+        <section
+            class="career-section"
+            id="career"
+        >
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    02 — CAREER MAP
+                </p>
+
+                <h2>
+                    Turn ambition into direction.
+                </h2>
+
+            </div>
+
+
+            <div class="career-layout">
+
+                <!-- Profile Form -->
+
+                <form
+                    class="profile-form glass"
+                    id="profile-form"
+                >
+
+                    <div class="form-row">
+
+                        <label>
+                            Name
+
+                            <input
+                                name="name"
+                                placeholder="Your name"
+                                required
+                            >
+                        </label>
+
+
+                        <label>
+                            Experience
+
+                            <input
+                                name="experience"
+                                placeholder="e.g. Fresher"
+                                required
+                            >
+                        </label>
+
+                    </div>
+
+
+                    <label>
+                        Education
+
+                        <input
+                            name="education"
+                            placeholder="e.g. B.Tech Computer Science"
+                            required
+                        >
+                    </label>
+
+
+                    <label>
+
+                        Technical skills
+
+                        <small>
+                            comma separated
+                        </small>
+
+                        <textarea
+                            name="skills"
+                            placeholder="Python, SQL, FastAPI, JavaScript"
+                            required
+                        ></textarea>
+
+                    </label>
+
+
+                    <label>
+
+                        Career interests
+
+                        <small>
+                            comma separated
+                        </small>
+
+                        <textarea
+                            name="interests"
+                            placeholder="Backend development, data analytics"
+                            required
+                        ></textarea>
+
+                    </label>
+
+
+                    <div class="form-actions">
+                        <button class="ghost-button" type="button" data-career-action="profile">Save profile</button>
+                        <button class="ghost-button" type="button" data-career-action="analyze">Quick analysis</button>
+                        <button class="ghost-button" type="button" data-career-action="recommend">Recommend jobs</button>
+                        <button class="primary-button" type="submit">Build full career map <span>→</span></button>
+                    </div>
+
+                </form>
+
+
+                <!-- Roadmap -->
+
+                <div
+                    class="roadmap glass"
+                    id="roadmap"
+                >
+
+                    <p class="card-label">
+                        PERSONAL ROADMAP
+                    </p>
+
+                    <h3>
+                        Ready to chart your path?
+                    </h3>
+
+                    <p>
+                        Share your profile and CareerOrbit
+                        will create a focused six-month route
+                        with role recommendations.
+                    </p>
+
+                    <div class="route-line">
+
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= JOB MATCHING ================= -->
+
+        <section
+            class="jobs-section"
+            id="jobs"
+        >
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    03 — JOB SIGNALS
+                </p>
+
+                <h2>
+                    Match skills to momentum.
+                </h2>
+
+            </div>
+
+
+            <div class="jobs-controls glass">
+
+                <input
+                    id="job-skills"
+                    placeholder="Enter skills, e.g. Python, SQL, FastAPI"
+                >
+
+                <button
+                    class="secondary-button"
+                    id="match-jobs"
+                    type="button"
+                >
+
+                    Find matches
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+            <div class="job-toolbar">
+                <button class="text-button" id="browse-jobs" type="button">Browse all sample jobs</button>
+                <span id="job-message">Use your own skills or create a career map above.</span>
+            </div>
+
+
+            <div
+                class="job-list"
+                id="job-list"
+            >
+
+                <div class="glass empty-state">
+
+                    Enter your skills to see how you align
+                    with currently available sample roles.
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        CareerOrbit
+
+        <span>·</span>
+
+        Built for your next move
+
+    </footer>
+
+
+    <!-- ================= TOAST ================= -->
+
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+    ></div>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
